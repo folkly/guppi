@@ -1,0 +1,51 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>io.github.folkly.guppi</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Guppi</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="folkly.dev@gmail.com" url="https://github.com/folkly">folkly</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    An AI-powered pair programming assistant.
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="io.github.folkly.guppi.settings.SettingsState"/>
+        <applicationConfigurable parentId="tools"
+                                 instance="io.github.folkly.guppi.settings.SettingsConfigurable"
+                                 id="io.github.folkly.guppi.settings.SettingsConfigurable"
+                                 displayName="Guppi"/>
+        <toolWindow factoryClass="io.github.folkly.guppi.chat.QuickChatToolWindowFactory" id="Guppi"/>
+    </extensions>
+
+    <actions>
+        <action id="io.github.folkly.guppi.testing.TestAction"
+                class="io.github.folkly.guppi.testing.TestAction"
+                text="Guppi Test Action">
+            <keyboard-shortcut first-keystroke="control alt shift SEMICOLON" keymap="$default"/>
+        </action>
+        <action id="io.github.folkly.guppi.completion.actions.CompleteCurrentLineAction"
+                class="io.github.folkly.guppi.completion.actions.CompleteCurrentLineAction"
+                text="Complete Current Line">
+            <keyboard-shortcut first-keystroke="alt shift SEMICOLON" keymap="$default"/>
+        </action>
+        <action id="io.github.folkly.guppi.chat.actions.QuickChatAction"
+                class="io.github.folkly.guppi.chat.actions.QuickChatAction" text="Quick Chat">
+            <keyboard-shortcut first-keystroke="alt SEMICOLON" keymap="$default"/>
+        </action>
+    </actions>
+</idea-plugin>
