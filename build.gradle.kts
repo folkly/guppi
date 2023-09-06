@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "io.github.folkly"
-version = "1.0.0-alpha-1-SNAPSHOT"
+version = "1.0.0-alpha-1-SNAPSHOT-2"
 
 repositories {
   mavenLocal()
