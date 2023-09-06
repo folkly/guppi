@@ -29,7 +29,9 @@
                                  instance="io.github.folkly.guppi.settings.SettingsConfigurable"
                                  id="io.github.folkly.guppi.settings.SettingsConfigurable"
                                  displayName="Guppi"/>
-        <toolWindow factoryClass="io.github.folkly.guppi.chat.QuickChatToolWindowFactory" id="Guppi"/>
+        <toolWindow factoryClass="io.github.folkly.guppi.chat.QuickChatToolWindowFactory"
+                    id="Guppi"
+                    icon="/icons/toolWindowIcon.svg"/>
     </extensions>
 
     <actions>
